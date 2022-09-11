@@ -23,6 +23,14 @@ export class ErrMsgDirective implements OnInit {
     this._text = text;
     this.setText();
   }
+  @Input() set errorMsgShow( show: boolean ) {
+    if ( show === true ) {
+      this.htmlElement.nativeElement.classList.remove('hidden');
+    } 
+    else {
+      this.htmlElement.nativeElement.classList.add('hidden');
+    }
+  }
 
   htmlElement: ElementRef<HTMLElement>;
   private _color: string = 'red';
@@ -37,6 +45,6 @@ export class ErrMsgDirective implements OnInit {
   }
 
   setStyles(): void {
-    this.htmlElement.nativeElement.classList.add('form-text')
+    this.htmlElement.nativeElement.classList.add('form-text');
   }
 }

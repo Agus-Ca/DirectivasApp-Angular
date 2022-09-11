@@ -14,9 +14,9 @@
         </div>
 
         <div class="col-auto">
-            <span *ngIf="hasError('name')"
-                  errorMsg
-                  [errorMsgColor]="color">
+            <span errorMsg
+                  [errorMsgColor]="color"
+                  [errorMsgShow]="hasError('name')">
             </span>
         </div>
 
