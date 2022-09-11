@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add',
@@ -6,11 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class AddComponent implements OnInit {
+export class AddComponent {
 
-  constructor() { }
+  constructor(
+    private formBuilder:FormBuilder
+  ) { }
 
-  ngOnInit(): void {
+  myForm: FormGroup = this.formBuilder.group({
+    name: [ '', Validators.required ]
+  });
+
+  hasError( field:string ): boolean {
+    return this.myForm.get(field)?.invalid || false;
   }
 
 }

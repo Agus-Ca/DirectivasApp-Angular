@@ -1,7 +1,7 @@
 <h2 class="mt-5">Agregar producto</h2>
 <hr>
 
-<form action="">
+<form [formGroup]="myForm">
     <div class="row g-3 align-items-center mb-3">
         
         <div class="col-auto">
@@ -9,11 +9,15 @@
         </div>
 
         <div class="col-auto">
-            <input class="form-control">
+            <input class="form-control"
+                   formControlName="name">
         </div>
 
         <div class="col-auto">
-            <span class="form-text">*Required</span>
+            <span class="form-text"
+                  *ngIf="hasError('name')">
+                *Required
+            </span>
         </div>
 
     </div>
@@ -30,3 +34,5 @@
 <hr class="mt-3">
 
 <h3 class="mt-3">Formulario</h3>
+<pre>Valid: {{ myForm.value | json }}</pre>
+<pre>Valid: {{ myForm.valid | json }}</pre>
