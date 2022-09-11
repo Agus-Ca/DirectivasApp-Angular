@@ -14,10 +14,8 @@
         </div>
 
         <div class="col-auto">
-            <span class="form-text"
-                  *ngIf="hasError('name')"
-                  errorMsg
-                  errorMsgColor="red">
+            <span *ngIf="hasError('name')"
+                  errorMsg>
             </span>
         </div>
 
