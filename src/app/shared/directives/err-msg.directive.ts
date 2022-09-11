@@ -15,17 +15,25 @@ export class ErrMsgDirective implements OnInit {
     this.setStyles();
   }
   
-  @Input() errorMsgColor: string = 'red';
-  @Input() errorMsgText: string = '* required';
+  @Input() set errorMsgColor( color: string) {
+    this._color = color;
+    this.setColor();
+  }
+  @Input() set errorMsgText( text: string ) {
+    this._text = text;
+    this.setText();
+  }
 
   htmlElement: ElementRef<HTMLElement>;
+  private _color: string = 'red';
+  private _text: string = '* required';
 
   setColor(): void {
-    this.htmlElement.nativeElement.style.color = this.errorMsgColor;
+    this.htmlElement.nativeElement.style.color = this._color;
   }
 
   setText(): void {
-    this.htmlElement.nativeElement.innerText = this.errorMsgText;
+    this.htmlElement.nativeElement.innerText = this._text;
   }
 
   setStyles(): void {

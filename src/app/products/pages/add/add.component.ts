@@ -17,8 +17,14 @@ export class AddComponent {
     name: [ '', Validators.required ]
   });
 
+  color: string = 'red';
+
   hasError( field:string ): boolean {
     return this.myForm.get(field)?.invalid || false;
   }
 
+  changeColor() {
+    const color = "#xxxxxx".replace(/x/g, y=>(Math.random()*16|0).toString(16));
+    this.color = color;
+  }
 }
